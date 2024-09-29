@@ -1,0 +1,35 @@
+<div class="order-container">
+  <h1>Order List</h1>
+  
+  <button class="add-order-button" routerLink="/vendor-dashboard/orders/add">Add Order</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>User ID</th>
+        <th>Order Date</th>
+        <th>Status</th>
+        <th>Total Amount</th>
+        <th>Shipping Address</th>
+        <th>Billing Address</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td data-label="ID">{{ order.id }}</td>
+        <td data-label="User ID">{{ order.user_id }}</td>
+        <td data-label="Order Date">{{ order.order_date | date:'short' }}</td>
+        <td data-label="Status">{{ order.status }}</td>
+        <td data-label="Total Amount">{{ order.total_amount | currency }}</td>
+        <td data-label="Shipping Address">{{ order.shipping_address }}</td>
+        <td data-label="Billing Address">{{ order.billing_address }}</td>
+        <td data-label="Actions">
+          <button routerLink="/vendor-dashboard/orders/edit/{{ order.id }}">Edit</button>
+          <button (click)="deleteOrder(order.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,46 @@
+<div class="container login-background">
+  <div class="row">
+    <div class="col s12 m8 l6 offset-m2 offset-l3">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title large-title center-align" id="login-title">Login</span>
+
+          <!-- Affichage des messages d'erreur -->
+          <div *ngIf="errorMessage" class="card-panel red lighten-2">
+            <span class="white-text">{{ errorMessage }}</span>
+          </div>
+
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <!-- Champ Email -->
+            <div class="input-field">
+              <input id="email" type="email" formControlName="email" class="validate">
+              <label for="email">Email</label>
+              <span class="helper-text" *ngIf="loginForm.get('email')?.hasError('required')">Email is required</span>
+              <span class="helper-text" *ngIf="loginForm.get('email')?.hasError('email')">Enter a valid email</span>
+            </div>
+
+            <!-- Champ Mot de passe -->
+            <div class="input-field">
+              <input id="password" type="password" formControlName="password" class="validate">
+              <label for="password">Password</label>
+              <span class="helper-text" *ngIf="loginForm.get('password')?.hasError('required')">Password is required</span>
+            </div>
+
+            <!-- Bouton de Soumission -->
+            <div class="input-field">
+              <button class="btn waves-effect waves-light" type="submit" [disabled]="isLoading">
+                {{ isLoading ? 'Logging in...' : 'Login' }}
+                <i class="material-icons right">send</i>
+              </button>
+            </div>
+          </form>
+
+          <!-- Link to Reset Password -->
+          <div class="center-align">
+            <a href="/reset-password" >Forgot your password?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

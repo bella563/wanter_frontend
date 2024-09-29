@@ -1,0 +1,158 @@
+/* General container styling */
+.container {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Header styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 36px; /* Larger font size for the heading */
+  color: #333;
+  font-weight: bold;
+}
+
+/* Add Product Button */
+.add-product-btn {
+  padding:  16px;
+  background-color: #3bd1c2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-product-btn:hover {
+  background-color: #058047;
+}
+
+/* Table styling */
+.product-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.product-table th,
+.product-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+
+}
+
+/* Table Header Styling */
+.product-table thead th {
+  background-color:#fdd835; /* Header background color */
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin: auto;
+}
+
+/* Image styling */
+.product-image {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+}
+
+/* Action buttons */
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #218838;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
+}
+th{
+  padding: 25px;
+}
+/* Responsive styling */
+@media only screen and (min-width: 993px) {
+  .container {
+   width: 90%; 
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    padding: 8px;
+  }
+
+  .header {
+    flex-direction: column;
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .product-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  .add-product-btn {
+    margin-top: 10px;
+    }
+  .edit-btn {
+   margin-right:  20px;;
+  }
+  
+
+  .product-table th,
+  .product-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .product-table th {
+    display: none;
+  }
+
+  .product-table td {
+    position: relative;
+    text-align: left;
+    border: none;
+  }
+
+  .product-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+}

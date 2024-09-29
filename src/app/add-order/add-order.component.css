@@ -1,0 +1,82 @@
+.add-order-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+h2 {
+    text-align: center;
+    color: #00b351;
+}
+
+
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.order-items {
+    grid-column: span 2; /* Fait que la section des articles de commande prenne toute la largeur */
+    margin: 20px 0;
+}
+
+.order-items h3 {
+    margin-bottom: 10px;
+    color: #00b351;
+}
+
+.order-items div {
+    display: block;
+    grid-template-columns: repeat(2, 1fr) ; /* 2 inputs + bouton Remove */
+    gap: 10px; /* Espacement entre les éléments */
+    align-items: center; /* Centre verticalement les éléments */
+    margin-bottom: 15px; /* Espacement entre les lignes d'items */
+}
+.success-message {
+    background-color: #d4edda; /* Vert clair */
+    color: #155724; /* Vert foncé */
+    border: 1px solid #c3e6cb; /* Bordure verte */
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.error-message {
+    background-color: #f8d7da; /* Rouge clair */
+    color: #721c24; /* Rouge foncé */
+    border: 1px solid #f5c6cb; /* Bordure rouge */
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+
+    .order-items div {
+    display: block; 
+   }
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #26a69a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #033f1c;
+}

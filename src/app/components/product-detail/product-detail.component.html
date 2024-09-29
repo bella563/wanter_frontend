@@ -1,0 +1,17 @@
+<h2>Product Details</h2>
+
+<!-- Affiche un message de chargement pendant que les données sont en cours de chargement -->
+<div *ngIf="isLoading">Loading...</div>
+
+<!-- Affiche un message d'erreur en cas de problème lors du chargement des données -->
+<div *ngIf="!isLoading && error">{{ error }}</div>
+
+<!-- Affiche un message lorsque le produit n'est pas trouvé -->
+<div *ngIf="!isLoading && !error && !product">Product not found.</div>
+
+<!-- Affiche les détails du produit lorsque les données sont chargées et sans erreurs -->
+<div *ngIf="!isLoading && !error && product">
+  <h3>{{ product.name }}</h3>
+  <p>{{ product.description }}</p>
+  <p>Price: {{ product.price  }}</p>
+</div>

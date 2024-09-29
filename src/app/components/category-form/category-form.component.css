@@ -1,0 +1,76 @@
+/* Style général du conteneur du formulaire */
+.category-form {
+  max-width: 600px; /* Limite la largeur du formulaire */
+  margin: 20px auto; /* Centre le formulaire horizontalement */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+/* Styles des titres */
+.category-form h1 {
+  margin-bottom: 20px;
+  font-size: 50px;
+  text-align: center;
+  color: #00b351;
+
+}
+
+/* Styles pour les alertes de succès et d'erreur */
+.alert {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Styles des champs de saisie */
+.category-form input,
+.category-form textarea {
+  width: 100%; /* S'assure que les champs prennent toute la largeur */
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Inclut la bordure et le padding dans la largeur */
+}
+
+/* Styles du bouton */
+.category-form button {
+  background-color: #26a69a; /* Couleur du bouton */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%; /* Le bouton prend toute la largeur */
+  font-size: 16px;
+}
+
+/* Changement de couleur au survol */
+.category-form button:hover {
+  background-color: #00b351;
+}
+
+/* Styles pour les petits écrans */
+@media (max-width: 600px) {
+  .category-form {
+    padding: 15px; /* Réduit le padding sur petits écrans */
+  }
+
+  .category-form h2 {
+    font-size: 20px; /* Ajuste la taille du titre */
+  }
+}

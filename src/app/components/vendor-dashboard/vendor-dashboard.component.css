@@ -1,0 +1,152 @@
+/* Basic styles for the dashboard layout */
+
+.container {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  width: 100%;
+}
+.avatar {
+  cursor: pointer;
+  width: 60px;  /* Increased width */
+  height: 60px; /* Increased height */
+  border-radius: 50%; /* Make it circular */
+  background-color: #fff; /* Background color */
+  display: flex; /* Center the icon */
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 3%;
+}
+
+.avatar span,
+.avatar i {
+  font-size: 37px; /* Increased icon size */
+  color: #f44336;
+  ; /* Icon color */
+}
+
+.avatar:hover {
+  background-color: #e0e0e0; /* Change background on hover */
+}
+
+ul{
+  margin-top: 80px;
+}
+.sidebar {
+  width: auto;
+  background-color: #26a69a; /* Fond vert */
+  padding: 20px;
+  position: relative;
+  transition: transform 0.3s ease;
+  color: #fff;
+  display: flex;
+  height: auto;
+  flex-direction: column; /* Disposer les éléments verticalement */
+}
+
+.sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column; /* Disposer les éléments de la liste verticalement */
+}
+
+.sidebar li {
+  margin: 0; /* Enlever les marges par défaut */
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #fff; /* Texte blanc pour contraste */
+  display: block;
+  padding: auto;
+  border-radius:50px;
+  height: auto;
+  width: auto;
+  margin: auto;
+}
+
+.sidebar a:hover {
+  background-color: #fff; /* Couleur plus foncée au survol */
+  color: #26a69a;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+.menu-toggle-mobile {
+  display: none;
+}
+
+.main-content {
+  flex: 1;
+  padding: 0px;
+  background-color: #fff;
+  width: 100%;
+
+}
+
+header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 15%;
+  background-color: rgb(254, 254, 228);
+}
+
+.brand-logo img {
+  width: 130px; 
+  height: auto; 
+  max-width: 100%; 
+  margin: 10px;
+  max-height: 100%;
+}
+/* Responsive styles */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: 1000;
+  }
+
+  .sidebar.hidden {
+    transform: translateX(0);
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-toggle-mobile {
+    display: block;
+    margin: 25px;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+  header {
+    background-color: #fff;
+  }
+  .brand-logo img {
+   display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .menu-toggle-mobile {
+    display: none;
+  }
+  
+}

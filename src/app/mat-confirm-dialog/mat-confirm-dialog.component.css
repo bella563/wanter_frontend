@@ -1,0 +1,5 @@
+/* Basic styling for confirmation dialog */
+.mat-dialog-actions {
+    justify-content: flex-end;
+  }
+  

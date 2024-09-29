@@ -1,0 +1,183 @@
+<!-- Header Section -->
+<header>
+  <nav>
+    <div class="nav-wrapper yellow darken-1">
+      <!-- Logo -->
+      <a href="#" class="brand-logo">
+        <img src="images/logo.png" alt="Logo" class="responsive-img">
+      </a>
+
+      <!-- Menu pour grands écrans -->
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <!-- Barre de recherche horizontale -->
+          <div class="search-container">
+            <div class="input-field">
+              <input id="search" type="search" placeholder="Search">
+              <label for="search">
+                <i class="material-icons">search</i>
+              </label>
+              <i class="material-icons close">close</i>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a href="#" class="notifications-icon">
+            <i class="material-icons">notifications</i>
+          </a>
+        </li>
+        <li><a class="btn waves-effect waves-light" href="#">Sign Up</a></li>
+        <li><a class="btn waves-effect waves-light" href="#">Login</a></li>
+      </ul>
+
+      <!-- Menu pour petits écrans (sidenav) -->
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <!-- Menu pour petits écrans (sidenav) -->
+  <ul id="nav-mobile" class="sidenav">
+    <li>
+      <a href="#" class="notifications-icon">
+        <i class="material-icons">notifications</i>
+        Notifications
+      </a>
+    </li>
+    <li><a class="btn waves-effect waves-light" href="#">Sign Up</a></li>
+    <li><a class="btn waves-effect waves-light" href="#">Login</a></li>
+  </ul>
+</header>
+
+<!-- Slider Section -->
+<!-- landing-page.component.html -->
+<div class="slideshow-container">
+  <div class="slides">
+    <div class="slide fade">
+      <img src="images/slide1.jpg" alt="Slide 1">
+    </div>
+    <div class="slide fade">
+      <img src="images/slide2.jpg" alt="Slide 2">
+    </div>
+    <div class="slide fade">
+      <img src="images/slide3.jpg" alt="Slide 3">
+    </div>
+  </div>
+</div>
+
+  <!-- Categories Slider Section -->
+<div class="categories-slider-container">
+  <button class="scroll-button left" (click)="scrollLeft()">
+    <i class="material-icons">arrow_left</i>
+  </button>
+  <div class="categories-slider" #slider>
+    <a href="/electronics" class="category-slide">
+      <i class="fas fa-mobile-alt icon"></i>
+      <h2>Électronique</h2>
+    </a>
+    <a href="/fashion" class="category-slide">
+      <i class="fas fa-tshirt icon"></i>
+      <h2>Mode</h2>
+    </a>
+    <a href="/home-decor" class="category-slide">
+      <i class="fas fa-couch icon"></i>
+      <h2>Maison & Décoration</h2>
+    </a>
+    <a href="/health-beauty" class="category-slide">
+      <i class="fas fa-heart icon"></i>
+      <h2>Santé & Beauté</h2>
+    </a>
+    <a href="/sports-leisure" class="category-slide">
+      <i class="fas fa-football-ball icon"></i>
+      <h2>Sports & Loisirs</h2>
+    </a>
+    <a href="/automobile" class="category-slide">
+      <i class="fas fa-car icon"></i>
+      <h2>Automobile</h2>
+    </a>
+    <a href="/office-supplies" class="category-slide">
+      <i class="fas fa-briefcase icon"></i>
+      <h2>Bureau & Fournitures</h2>
+    </a>
+    <a href="/garden" class="category-slide">
+      <i class="fas fa-seedling icon"></i>
+      <h2>Jardin & Extérieur</h2>
+    </a>
+    <a href="/food-beverages" class="category-slide">
+      <i class="fas fa-utensils icon"></i>
+      <h2>Alimentation & Boissons</h2>
+    </a>
+    <a href="/books-media" class="category-slide">
+      <i class="fas fa-book icon"></i>
+      <h2>Livres & Médias</h2>
+    </a>
+  </div>
+  <button class="scroll-button right" (click)="scrollRight()">
+    <i class="material-icons">arrow_right</i>
+  </button>
+</div>
+
+<!-- Main Content Section -->
+<main class="container">
+  <h1 class="center-align">  Bienvenue sur Wanteer !</h1>
+  <p class="center-align"> Faites de chaque achat une découverte inoubliable.  </p>
+
+</main>
+  <!-- Products Cards Section -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m6 l4" *ngFor="let product of products">
+        <div class="card hoverable">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" [src]="product.image_url" alt="{{ product.name }}">
+            <span class="card-title">{{ product.name }}</span>
+          </div>
+          <div class="card-content">
+            <p>{{ product.description }}</p>
+            <p class="card-price">${{ product.price }}</p>
+          </div>
+          <div class="card-action">
+            <a href="#" class="btn-large waves-effect waves-light">More Info</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- step-process.component.html -->
+  <div class="container">
+    <div class="steps-container">
+      <div class="steps-list">
+        <ol direction="ver" prefix="next-" class="next-step next-step-circle next-step-vertical next-step-label-vertical">
+          <li *ngFor="let step of steps; let i = index" class="next-step-item" [ngClass]="{'next-step-item-process': i === 0, 'next-step-item-wait': i !== 0}">
+            <div class="next-step-item-container">
+              <div class="next-step-item-node-placeholder">
+                <div class="step-num">{{ i + 1 }}</div>
+              </div>
+            </div>
+            <div class="next-step-item-body">
+              <div class="next-step-item-title" (click)="toggleContent(i)">
+                <span>{{ step.title }}</span>
+              </div>
+              <div class="next-step-item-content">
+                <p *ngIf="isActiveStep(i)" class="hidden-text">{{ step.details }}</p>
+              </div>
+            </div>
+            <div class="next-step-item-tail"></div>
+          </li>
+        </ol>
+      </div>
+      <div class="image-container" style="margin: auto;">
+        <img [src]="activeImage" alt="Step Image" >
+      </div>
+    </div>
+  </div>
+  
+  
+<!-- Footer Section -->
+<footer class="page-footer yellow darken-1">
+  <div class="container">
+    <p class="center-align">&copy; 2024 MyEcommerce. All rights reserved.</p>
+  </div>
+</footer>
+
+

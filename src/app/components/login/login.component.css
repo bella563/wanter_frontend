@@ -1,0 +1,77 @@
+.login-background {
+    background-image: url('/images/banniere.png'); /* Chemin vers votre image */
+    background-size: cover; /* Couvre toute la zone */
+    background-position: center; /* Centre l'image */
+    min-height: 100vh; /* Prend toute la hauteur de la vue */
+    width: 100%;
+}
+.center-align {
+    margin-top: 20px; /* Space above the link */
+  }
+  
+  .center-align a {
+    text-decoration: underline; /* Underline the link */
+    font-weight: bold; /* Bold text for emphasis */
+    color: #26a69a; 
+  }
+  
+  .center-align a:hover {
+    color: #ff5722; /* Change color on hover */
+  }
+  
+.card-title {
+    font-size: 2.5rem; /* Taille de police plus grande */
+    font-weight: bold; /* Gras */
+    color: #26a69a; /* Couleur principale */
+    margin-bottom: 20px; /* Espace en bas du titre */
+    text-align: center; /* Centrer le texte */
+    text-transform: uppercase; /* Met le texte en majuscules */
+    letter-spacing: 1px; /* Espacement des lettres */
+    opacity: 0; /* Commence invisible */
+    transform: translateY(-20px); /* Décalage vers le haut */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transition pour l'opacité et la transformation */
+}
+
+/* Classe pour activer l'animation */
+.animate-title {
+    opacity: 1; /* Rendre visible */
+    transform: translateY(0); /* Retour à la position originale */
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.9); /* Fond légèrement opaque */
+    width: 80%; /* Prend toute la largeur disponible */
+    max-width: 600px; /* Limite la largeur max pour les grands écrans */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 30px; /* Ajoute de l'espace à l'intérieur de la carte */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajoute une ombre pour le relief */
+margin-top: 10%;
+}
+
+/* Media Queries pour la réactivité */
+@media (max-width: 992px) {
+    .login-background {
+        background-image: none /* Chemin vers votre image */
+       
+    }
+    
+    .card {
+        width: 80%; /* Prend 90% de la largeur sur mobile */
+        margin: auto;
+        margin-top: 10%;
+        max-width: 100%; /* Pas de limite de largeur sur mobile */
+    }
+}
+
+@media (max-width: 600px) {
+    .login-background {
+        background-image: none /* Chemin vers votre image */
+       
+    }
+    
+    .card {
+        width: 80%; /* Prend 90% de la largeur sur mobile */
+        margin: 10%;
+        max-width: 100%; /* Pas de limite de largeur sur mobile */
+    }
+}

@@ -1,0 +1,24 @@
+<div class="category-form">
+    <h1>{{ category.id ? 'Update' : 'Add' }}  Category</h1>
+    
+    <div *ngIf="successMessage" class="alert alert-success">
+        {{ successMessage }}
+    </div>
+    
+    <div *ngIf="errorMessage" class="alert alert-danger">
+        {{ errorMessage }}
+    </div>
+  
+    <form (ngSubmit)="submit()">
+        <div>
+            <label for="name">Nom</label>
+            <input id="name" [(ngModel)]="category.name" name="name" required />
+        </div>
+        <div>
+            <label for="description">Description</label>
+            <textarea id="description" [(ngModel)]="category.description" name="description"></textarea>
+        </div>
+        <button type="submit">{{ category.id ? 'UPDATE' : 'SUBMIT' }} </button>
+    </form>
+  </div>
+  

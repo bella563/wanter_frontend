@@ -1,0 +1,73 @@
+.order-container {
+    padding: 20px;
+    margin: auto;
+    max-width: 1200px;
+    overflow-x: auto; /* Ajoute un défilement horizontal si nécessaire */
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .add-order-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-order-button:hover {
+    background-color: #0056b3;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  @media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+      display: block; /* Passer en mode bloc pour les petits écrans */
+    }
+  
+    th {
+      display: none; /* Masquer les en-têtes dans le mode bloc */
+    }
+  
+    tr {
+      margin-bottom: 15px;
+      border: 1px solid #ddd; /* Ajoute une bordure autour de chaque commande */
+    }
+  
+    td {
+      text-align: right;
+      padding-left: 50%; /* Crée un espace pour le contenu */
+      position: relative;
+    }
+  
+    td::before {
+      content: attr(data-label); /* Utilise l'attribut data-label pour afficher le nom de la colonne */
+      position: absolute;
+      left: 10px;
+      width: calc(50% - 20px);
+      padding-left: 10px;
+      font-weight: bold;
+      text-align: left;
+    }
+  }
+  

@@ -1,0 +1,67 @@
+/* General styles for the registration form */
+.container{
+    background-image: url('/images/banniere.png'); /* Chemin vers votre image */
+    background-size: cover; /* Couvre toute la zone */
+    background-position: center; /* Centre l'image */
+    min-height: 100vh; /* Prend toute la hauteur de la vue */
+    width: 100%;
+}
+form {
+    max-width: 700px; /* Set a maximum width for the form */
+    margin: auto; /* Center the form horizontally */
+    padding: 20px; /* Add padding around the form */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 8px; /* Rounded corners */
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Title styling */
+  h2 {
+    text-align: center; /* Center the title */
+    color: #26a69a;
+    ; /* Dark color for the title */
+    margin-bottom: 20px; /* Space below the title */
+  }
+  
+  /* Style for form fields */
+  mat-form-field {
+    width: 100%; /* Make form fields take full width */
+    margin-bottom: 16px; /* Space between fields */
+  }
+  
+  /* Style for the submit button */
+  button {
+    width: 100%; /* Full width for the button */
+    background-color: #00ff1e; /* Blue background */
+    color: white; /* White text */
+    font-weight: bold; /* Bold text */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth transition */
+  }
+  
+  button:hover {
+    background-color: #27b300; 
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    form {
+      padding: 15px; /* Adjust padding for smaller screens */
+    }
+    
+    mat-form-field {
+      margin-bottom: 12px; /* Reduce space for smaller screens */
+    }
+  }
+  
+  /* Error message styling */
+  .error-message {
+    color: red; /* Red color for error messages */
+    margin-top: 10px; /* Space above error messages */
+    text-align: center; /* Center align error messages */
+  }
+  

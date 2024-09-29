@@ -1,0 +1,32 @@
+<div class="container">
+  
+  <nav class="sidebar" [class.hidden]="!sidebarVisible">
+    
+    <button class="menu-toggle" (click)="toggleSidebar()">☰</button>
+
+    <ul>
+      <li><a routerLink="products" routerLinkActive="active">Products</a></li>
+      <li><a routerLink="categories" routerLinkActive="active">Categories</a></li>
+      <li><a routerLink="orders" routerLinkActive="active">Orders</a></li>
+      <li><a routerLink="transactions" routerLinkActive="active">Transactions</a></li>
+      <li><a routerLink="vendor_subscriptions" routerLinkActive="active">Subscriptions</a></li>
+
+    </ul>
+  </nav>
+  <div class="main-content">
+    <header class="nav-wrapper">
+      <button class="menu-toggle-mobile" (click)="toggleSidebar()">☰</button>
+      <a href="/vendor-dashboard" class="brand-logo">
+        <img src="images/logo.png" alt="Logo" class="responsive-img">
+      </a>
+      <div class="avatar" (click)="logout()">
+        <i class="fa fa-user-circle" aria-hidden="true"></i>
+      </div>
+      
+    </header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+  
+</div>
