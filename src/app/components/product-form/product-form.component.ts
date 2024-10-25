@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
 import { CategoryService } from '../../category.service';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { AuthService } from '../../services/auth.service'; // Importer AuthService
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-product-form',
@@ -30,16 +30,16 @@ export class ProductFormComponent implements OnInit {
     private fb: FormBuilder,
     private productService: ProductService,
     private categoryService: CategoryService,
-    private authService: AuthService, // Injection de AuthService
+    private authService: AuthService,
     public dialogRef: MatDialogRef<ProductFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.productForm = this.fb.group({
       name: ['', Validators.required],
       description: [''],
-      stock_quantity: [0, Validators.required],
-      price: [0, Validators.required],
-      category_id: ['', Validators.required], // Correction ici
+      stock_quantity: [0, [Validators.required, Validators.min(1)]],
+      price: [0, [Validators.required, Validators.min(0)]],
+      category_id: ['', Validators.required],
       image_url: ['']
     });
   }
@@ -66,8 +66,8 @@ export class ProductFormComponent implements OnInit {
       const formValue = this.productForm.value;
       const productId = this.isEditing ? this.data?.product?.id : null;
 
-      // Ajouter user_id à formValue
-      formValue.user_id = this.authService.currentUserValue.id; // Utiliser l'ID de l'utilisateur connecté
+      formValue.user_id = this.authService.currentUserValue.id; // Assurez-vous que c'est l'ID de l'utilisateur connecté
+      console.log('Données envoyées :', formValue);
 
       const action$ = this.isEditing 
         ? this.productService.updateProduct(productId!, formValue)
@@ -80,7 +80,7 @@ export class ProductFormComponent implements OnInit {
         },
         error: (err) => {
           console.error(this.isEditing ? 'Update failed' : 'Creation failed', err);
-          this.notification = 'An error occurred while saving the product.';
+          this.notification = 'An error occurred while saving the product. Please check the console for more details.';
         }
       });
     } else {

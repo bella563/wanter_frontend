@@ -24,10 +24,7 @@ export class VendorDashboardComponent {
   }
   
   logout(): void {
-    // Clear user session or token here
-    // For example, localStorage.removeItem('userToken');
-
-    // Navigate to the login page
+  
     this.router.navigate(['/login']);
   }
 }

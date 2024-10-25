@@ -30,8 +30,9 @@ const routes: Routes = [
   { 
     path: 'vendor-dashboard', 
     component: VendorDashboardComponent, 
-    canActivate: [AuthGuard],
+    // canActivate: [AuthGuard],
     children: [
+      
       { path: 'products', component: ProductListComponent },
       { path: 'products/:id', component: ProductDetailComponent },
       { path: 'categories', component: CategoriesComponent },

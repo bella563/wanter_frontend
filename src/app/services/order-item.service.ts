@@ -6,27 +6,31 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class OrderItemService {
-  private apiUrl = 'https://your-api-url.com/api/order-items'; // Remplacez par votre URL API
+  private apiUrl = 'http://localhost:8000/api/order-items';
 
   constructor(private http: HttpClient) {}
 
-  // Créer un nouvel élément de commande
-  createOrderItem(orderItem: any): Observable<any> {
-    return this.http.post(this.apiUrl, orderItem);
+  createOrderItems(orderId: number, orderItems: any[]): Observable<any> {
+    return this.http.post(this.apiUrl, { order_id: orderId, items: orderItems });
   }
 
-  // Mettre à jour un élément de commande
+  getOrderItems(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
+
+  getOrderItemsByOrderId(orderId: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/order/${orderId}`);
+  }
+
+  getOrderItem(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
+
   updateOrderItem(id: number, orderItem: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/${id}`, orderItem);
   }
 
-  // Supprimer un élément de commande
   deleteOrderItem(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
-  }
-
-  // Obtenir tous les éléments de commande pour un order_id
-  getOrderItems(orderId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}?order_id=${orderId}`);
   }
 }
