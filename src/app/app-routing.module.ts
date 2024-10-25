@@ -28,7 +28,7 @@ const routes: Routes = [
 
   { path: 'home', component: LandingPageComponent },
   { 
-    path: 'vendor-dashboard', 
+    path: ' ', 
     component: VendorDashboardComponent, 
     // canActivate: [AuthGuard],
     children: [
